@@ -1,7 +1,17 @@
 package ru.bookstore.bookstore.entities;
 
-public class Book extends BaseEntity {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "books")
+public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "name")
     private String name;
+    @Column(name = "pages")
     private int pages;
 
     public Book() {
@@ -27,5 +37,13 @@ public class Book extends BaseEntity {
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

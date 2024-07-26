@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ru.bookstore.bookstore.contracts.BookRepository;
+import ru.bookstore.bookstore.contracts.BookService;
 import ru.bookstore.bookstore.entities.Book;
 import ru.bookstore.bookstore.requests.dtos.BookDto;
 import ru.bookstore.bookstore.responses.BaseResponse;
@@ -21,43 +22,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("books")
-@Component
 public class BookController {
 
-    private BookRepository bookRepository;
-
     @Autowired
-    public BookController(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    private BookService bookService;
+
+    public BookController() {
     }
 
     @GetMapping("/get")
     public BaseResponse<List<Book>> getListOfBooks() {
-        List<Book> books = bookRepository.Get();
+        List<Book> books = bookService.Get();
         return new BaseResponse<List<Book>>("Success", 0, books);
     }
 
     @GetMapping("/get/{id}")
     public BaseResponse<Book> getById(@RequestParam int id) {
-        Book book = bookRepository.Get(id);
+        Book book = bookService.Get(id);
         return new BaseResponse<Book>("Success", 0, book);
     }
 
     @PostMapping("")
     public BaseResponse<Book> add(@RequestBody BookDto entity) {
-        Book book = bookRepository.Add(entity);
+        Book book = bookService.Add(entity);
         return new BaseResponse<Book>("Success", 0, book);
     }
 
     @PutMapping("")
     public BaseResponse<Book> update(@RequestBody BookDto entity) {
-        Book book = bookRepository.Update(entity);
+        Book book = bookService.Update(entity);
         return new BaseResponse<Book>("Success", 0, book);
     }
 
     @DeleteMapping("{id}")
     public BaseResponse<String> delete(@RequestParam int id) {
-        bookRepository.Delete(id);
+        bookService.Delete(id);
         return new BaseResponse<String>("Success", 0, "book was successfully removed");
     }
 

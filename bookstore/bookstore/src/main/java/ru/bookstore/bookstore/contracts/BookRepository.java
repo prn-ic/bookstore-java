@@ -1,18 +1,8 @@
 package ru.bookstore.bookstore.contracts;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import ru.bookstore.bookstore.entities.Book;
-import ru.bookstore.bookstore.requests.dtos.BookDto;
 
-public interface BookRepository {
-    Book Add(BookDto bookDto);
-
-    Book Update(BookDto bookDto);
-
-    void Delete(int id);
-
-    Book Get(int id);
-
-    List<Book> Get();
+public interface BookRepository extends JpaRepository<Book, Integer> {
 }
