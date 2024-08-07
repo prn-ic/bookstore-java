@@ -1,0 +1,16 @@
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 800px;
+  align-items: start;
+  justify-content: space-between;
+  background: #ffffff;
+  margin: 0 auto;
+}
+
+.card-detail img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}

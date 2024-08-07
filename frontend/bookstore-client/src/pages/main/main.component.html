@@ -1,0 +1,13 @@
+<div class="cards-container">
+  <div class="cards">
+    <app-card
+      *ngFor="let value of bookList"
+      name="{{ value.name }}"
+      capacity="{{ value.pages }}"
+      data-id="{{ value.id }}"
+    ></app-card>
+  </div>
+</div>
+
+<!--
+<app-card name="лис из клана серебра" capacity="123"></app-card> -->

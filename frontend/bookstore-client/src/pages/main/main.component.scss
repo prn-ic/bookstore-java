@@ -1,0 +1,13 @@
+.cards-container {
+  margin: 0 auto;
+}
+
+.cards {
+  place-self: center;
+  display: grid;
+  justify-items: center;
+  grid-gap: 50px;
+  grid-template-columns: repeat(4, auto);
+  margin: 0 auto;
+}
+

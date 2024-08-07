@@ -1,0 +1,5 @@
+<form [formGroup]="bookForm" (ngSubmit)="submit()">
+  <input type="text" formControlName="name" placeholder="name"/>
+  <input type="text" formControlName="pages" placeholder="pages"/>
+  <input type="submit" value="CREATE"/>
+</form>
